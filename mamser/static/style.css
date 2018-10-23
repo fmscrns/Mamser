@@ -1,0 +1,120 @@
+body {
+    margin:0;
+    padding:0;
+}
+select {
+    padding:0 30px 0 10px !important;
+    -webkit-padding-end: 20px !important;
+    -webkit-padding-start: 10px !important;
+}
+::-webkit-input-placeholder {
+    font-style:italic;
+  }
+#topbar {
+    width:100%;
+    height:95px;
+    margin:0 auto;
+    background-color:white;
+}
+#logo-nameplate {
+    position:relative;
+    width:320px;
+    margin:0 auto;
+    top:5px;
+}
+#background {
+    position:sticky;
+    width:100%;
+    height:874px;
+    background-color:#F0CFC5;
+}
+#content {
+    position:relative;
+    margin:0 auto;
+    top:20px;
+    width:1800px;
+    height:820px;
+    background-color:whitesmoke;
+}
+#studentConfiguration-section {
+    position:relative;
+    float:left;
+    margin:20px 0 0 20px;
+    width:600px;
+    height:780px;
+    background-color:#F0CFC5;
+}
+#studentConfiguration-navbar {
+    position:relative;
+    width:100%;
+    height:55px;
+    background-color:#C8530C;
+}
+#navbarLogo-addCont {
+    float:left;
+    width:55px;
+    height:55px;
+}
+#navbarLogo-deleteCont {
+    float:left;
+    width:55px;
+    height:55px;
+}
+#navbarLogo-searchCont {
+    float:left;
+    width:55px;
+    height:55px;
+}
+#navbarLogo-add {
+    position:relative;
+    margin:12.5px;
+    width:30px;
+}
+#navbarLogo-delete {
+    position:relative;
+    margin:12.5px;
+    width:30px;
+}
+#navbarLogo-search {
+    position:relative;
+    margin:12.5px;
+    width:30px;
+}
+#studentConfiguration-registry {
+    position:relative;
+    float:left;
+    width:600px;
+    height:725px;
+    background-color:whitesmoke;
+    overflow:hidden;
+}
+#addRegistry {
+    position:absolute;
+    width:600px;
+    height:725px;
+    background-color:white;
+}
+#deleteRegistry {
+    position:absolute;
+    width:600px;
+    height:725px;
+    background-color:greenyellow;
+}
+#searchRegistry {
+    position:absolute;
+    width:600px;
+    height:725px;
+    background-color:hotpink;
+}
+#studentList-viewbox {
+    float:right;
+    margin:20px;
+    width:1140px;
+    height:780px;
+    background-color:wheat;
+}
+#viewbox-content {
+    width:800px;
+    height:500px;
+    background-color: aqua;
+}
