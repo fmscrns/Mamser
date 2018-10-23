@@ -35,21 +35,6 @@
                                 {% endif %}
                             {% endwith %}
                         </div>
-                        Name:
-                        <table>
-                            <tr>
-                                <td>{{ searchRegistryForm.search_name }}</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    {% if searchRegistryForm.search_name.errors %}
-                                        {% for error in searchRegistryForm.search_name.errors %}
-                                            {{ error }}
-                                        {% endfor %}
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        </table>
                         ID Number:
                         <table>
                             <tr>
@@ -59,48 +44,6 @@
                                 <td>
                                     {% if searchRegistryForm.search_idNo.errors %}
                                         {% for error in searchRegistryForm.search_idNo.errors %}
-                                            {{ error }}
-                                        {% endfor %}
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        </table>
-                        Gender:
-                        <table>
-                            <tr>
-                                {% for subfield in searchRegistryForm.search_gender %}
-                                    <td>{{ subfield }}{{ subfield.label }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                {% if searchRegistryForm.search_gender.errors %}
-                                        {% for error in searchRegistryForm.search_gender.errors %}
-                                            {{ error }}
-                                        {% endfor %}
-                                {% endif %}
-                            </tr>
-                        </table>
-                        College:
-                        <table>
-                            <tr>
-                                <td>
-                                    {{ searchRegistryForm.search_college }}
-                                </td>
-                                <td>
-                                    {{ searchRegistryForm.search_course }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    {% if searchRegistryForm.search_college.errors %}
-                                        {% for error in searchRegistryForm.search_college.errors %}
-                                            {{ error }}
-                                        {% endfor %}
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    {% if searchRegistryForm.search_course.errors %}
-                                        {% for error in searchRegistryForm.search_course.errors %}
                                             {{ error }}
                                         {% endfor %}
                                     {% endif %}

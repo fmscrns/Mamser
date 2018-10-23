@@ -50,7 +50,6 @@ class AddRegistryForm(FlaskForm):
     add_submit = SubmitField("ADD")
 
 class SearchRegistryForm(FlaskForm):
-    search_field = StringField("search_field")
     search_name = StringField("search_name", validators=[nameFieldCheck])
     search_idNo = StringField("search_idNo", validators=[idNoFieldCheck])
     search_gender = RadioField("search_gender", choices=[("Male", "Male"), ("Female", "Female")])
