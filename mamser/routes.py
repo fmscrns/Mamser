@@ -34,10 +34,9 @@ def mamser():
     if searchRegistryForm.validate_on_submit():
         return redirect(url_for("mamser")) 
 
-    content = "student_list"
-    return render_template("mamser.html", addRegistryForm=addRegistryForm, searchRegistryForm=searchRegistryForm, content=content)
+    return render_template("mamser.html", addRegistryForm=addRegistryForm, searchRegistryForm=searchRegistryForm)
 
-@app.route("/coursesoptionlib/<college_id>")
+@app.route("/courseoptions/<college_id>")
 def course(college_id):
     courseList = []
 
@@ -53,7 +52,7 @@ def course(college_id):
     
     return jsonify({"courses" : courseList})
 
-@app.route("/studentsearchidnolib/<student_idNo>")
+@app.route("/idnosearch/<student_idNo>")
 def searchStudentIdNo(student_idNo):
     studentObj = {}
 
@@ -71,58 +70,63 @@ def searchStudentIdNo(student_idNo):
 
     return jsonify({"student" : studentObj})
 
-@app.route("/studentsearchnamelib/<student_name>")
-def searchStudentName(student_name):
-    studentObj = {}
-
-    student = Student.query.filter_by(student_name=student_name).first()
-
-    if student:
-        course = Course.query.filter_by(course_db_id=student.course_id).first()
-
-        studentObj["idNo"] = student.student_idNo
-        studentObj["name"] = student.student_name
-        studentObj["gender"] = student.student_gender
-        studentObj["course"] = course.course_name
-
-    return jsonify({"students" : studentObj})
-
-@app.route("/studentsearchgenderlib/<student_gender>")
+@app.route("/gendersearch/<student_gender>")
 def searchStudentGender(student_gender):
     studentList = []
 
     students = Student.query.filter_by(student_gender=student_gender).all()
 
-    for student in students:
-        studentObj = {}
+    if students:
+        for student in students:
+            studentObj = {}
 
-        course = Course.query.filter_by(course_db_id=student.course_id).first()
+            course = Course.query.filter_by(course_db_id=student.course_id).first()
+            college = College.query.filter_by(college_db_id=course.college_id).first()
 
-        studentObj["idNo"] = student.student_idNo
-        studentObj["name"] = student.student_name
-        studentObj["gender"] = student.student_gender
-        studentObj["course_id"] = course.course_name
-        
-        studentList.append(studentObj)
-
-    return jsonify({"students" : studentList})
-
-@app.route("/studentsearchcourselib/<course_id>")
-def searchStudentCourse(course_id):
-    studentList = []
-
-    students = Student.query.filter_by(course_id=course_id).all()
-
-    for student in students:
-        studentObj = {}
-
-        course = Course.query.filter_by(course_db_id=student.course_id).first()
-
-        studentObj["idNo"] = student.student_idNo
-        studentObj["name"] = student.student_name
-        studentObj["gender"] = student.student_gender
-        studentObj["course_id"] = course.course_name
-        
-        studentList.append(studentObj)
+            studentObj["idNo"] = student.student_idNo
+            studentObj["name"] = student.student_name
+            studentObj["gender"] = student.student_gender
+            studentObj["course"] = course.course_name
+            studentObj["college"] = college.college_name
+            
+            studentList.append(studentObj)
 
     return jsonify({"students" : studentList})
+
+# @app.route("/namesearch/<student_name>")
+# def searchStudentName(student_name):
+#     studentObj = {}
+
+#     student = Student.query.filter_by(student_name=student_name).first()
+
+#     if student:
+#         course = Course.query.filter_by(course_db_id=student.course_id).first()
+
+#         studentObj["idNo"] = student.student_idNo
+#         studentObj["name"] = student.student_name
+#         studentObj["gender"] = student.student_gender
+#         studentObj["course"] = course.course_name
+
+#     return jsonify({"students" : studentObj})
+
+
+
+# @app.route("/coursesearch/<course_id>")
+# def searchStudentCourse(course_id):
+#     studentList = []
+
+#     students = Student.query.filter_by(course_id=course_id).all()
+
+#     for student in students:
+#         studentObj = {}
+
+#         course = Course.query.filter_by(course_db_id=student.course_id).first()
+
+#         studentObj["idNo"] = student.student_idNo
+#         studentObj["name"] = student.student_name
+#         studentObj["gender"] = student.student_gender
+#         studentObj["course_id"] = course.course_name
+        
+#         studentList.append(studentObj)
+
+#     return jsonify({"students" : studentList})
