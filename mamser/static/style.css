@@ -34,7 +34,7 @@ select {
     top:20px;
     width:1800px;
     height:820px;
-    background-color:whitesmoke;
+    background-color:white;
 }
 #studentConfiguration-section {
     position:relative;
@@ -88,6 +88,12 @@ select {
     background-color:whitesmoke;
     overflow:hidden;
 }
+#searchRegistry {
+    position:absolute;
+    width:600px;
+    height:725px;
+    background-color:white;
+}
 #addRegistry {
     position:absolute;
     width:600px;
@@ -98,23 +104,42 @@ select {
     position:absolute;
     width:600px;
     height:725px;
-    background-color:greenyellow;
-}
-#searchRegistry {
-    position:absolute;
-    width:600px;
-    height:725px;
-    background-color:hotpink;
+    background-color:white;
 }
 #studentList-viewbox {
     float:right;
     margin:20px;
     width:1140px;
     height:780px;
-    background-color:wheat;
+    background-color:white;
+}
+#viewbox-header {
+    width:100%;
+    height:55px;
+}
+#header-number {
+    float:left;
+    width:10%;
+    height:100%;
+}
+#header-labels {
+    float:left;
+    width:85%;
+    height:100%;
+}
+#header-block {
+    float:left;
+    width:5%;
+    height:100%;
+}
+.header-label {
+    text-align:center;
+    float:left;
+    width:20%;
+    height:100%;
 }
 #viewbox-content {
-    width:800px;
-    height:500px;
-    background-color: aqua;
+    width:100%;
+    height:725px;
+    overflow-y:scroll;
 }

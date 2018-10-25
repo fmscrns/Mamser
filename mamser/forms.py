@@ -52,6 +52,6 @@ class AddRegistryForm(FlaskForm):
 class SearchRegistryForm(FlaskForm):
     search_name = StringField("search_name", validators=[nameFieldCheck])
     search_idNo = StringField("search_idNo", validators=[idNoFieldCheck])
-    search_gender = RadioField("search_gender", choices=[("Male", "Male"), ("Female", "Female")])
+    search_gender = RadioField("search_gender", coerce=int, choices=[(0, "Male"), (1, "Female")])
     search_college = SelectField("search_college", coerce=int, choices=[(0,"-----select college-----"), (1, "Engineering and Technology"), (2, "Science and Mathematics"), (3, "Education"), (4, "Arts and Social Sciences"), (5, "Business Administration and Accountancy"), (6, "Nursing"), (7, "Computer Studies")])
     search_course = SelectField("search_course", coerce=int, choices=[])

@@ -2,14 +2,14 @@
     {% block content %}
         <div id="studentConfiguration-section">
             <div id="studentConfiguration-navbar">
-                <div id="navbarLogo-addCont">
-                    <div id="navbarLogo-add">
-                        <img src=" {{ url_for('static', filename='images/mamserLogo-add.svg') }} ">
-                    </div>
-                </div>
                 <div id="navbarLogo-searchCont">
                     <div id="navbarLogo-search">
                         <img src=" {{ url_for('static', filename='images/mamserLogo-search.svg') }} ">
+                    </div>
+                </div>
+                <div id="navbarLogo-addCont">
+                    <div id="navbarLogo-add">
+                        <img src=" {{ url_for('static', filename='images/mamserLogo-add.svg') }} ">
                     </div>
                 </div>
                 <div id="navbarLogo-deleteCont">
@@ -20,38 +20,6 @@
             </div>
             <div id="studentConfiguration-registry">
                 <div id="deleteRegistry">
-                </div>
-                <div id="searchRegistry">
-                    <form>
-                        {{ searchRegistryForm.hidden_tag() }}
-                        <div>
-                            {% with messages = get_flashed_messages(with_categories=true) %}
-                                {% if messages %}
-                                    {% for category, message in messages %}
-                                        <div>
-                                            {{ message }}
-                                        </div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endwith %}
-                        </div>
-                        ID Number:
-                        <table>
-                            <tr>
-                                <td>{{ searchRegistryForm.search_idNo(placeholder="YYYY-NNNN") }}</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    {% if searchRegistryForm.search_idNo.errors %}
-                                        {% for error in searchRegistryForm.search_idNo.errors %}
-                                            {{ error }}
-                                        {% endfor %}
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                    <input type="button" id="search_submit" value="SEARCH">
                 </div>
                 <div id="addRegistry">
                     <form method="post" action="">
@@ -142,11 +110,69 @@
                         {{ addRegistryForm.add_submit }}
                     </form>
                 </div>
+                <div id="searchRegistry">
+                    <form>
+                        {{ searchRegistryForm.hidden_tag() }}
+                        ID Number:
+                        <table>
+                            <tr>
+                                <td>{{ searchRegistryForm.search_idNo(placeholder="YYYY-NNNN") }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {% if searchRegistryForm.search_idNo.errors %}
+                                        {% for error in searchRegistryForm.search_idNo.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="button" id="idNo_search_submit" value="SEARCH"><br>
+                        <br>
+                        Gender:
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="gender" value="1">Male
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="gender" value="2">Female
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="button" id="gender_search_submit" value="SEARCH"><br>
+                    </form>                 
+                </div>
             </div>
         </div>
         <div id="studentList-viewbox">
-            <div id="viewbox-content">
-                <div id="{{ content }}"></div>
+
+            <div id="viewbox-header">
+                <div id="header-number">&nbsp;&nbsp;&nbsp;#</div>
+                <div id="header-labels">
+                    <div class="header-label">ID Number</div>
+                    <div class="header-label">Name</div>
+                    <div class="header-label">Gender</div>
+                    <div class="header-label">College</div>
+                    <div class="header-label">Course</div>
+                </div>
+                <div id="header-block"></div>
             </div>
-        </div>
+            <div id="viewbox-content">
+                <table class="table table-hover">
+                    <tbody>
+                        {% for n in range(100) %}
+                            <tr>
+                                <th scope="row">{{ n + 1 }}</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
     {% endblock content %}
